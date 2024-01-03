@@ -10,25 +10,28 @@ import {
   About,
   Products,
   PrivateRoute,
+  AuthWrapper,
 } from "./pages";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Sidebar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/checkout" element={<Checkout />} />
-          <Route exact path="/products" element={<Products />} />
-          <Route exact path="/products/:id" element={<SingleProduct />} />
-          <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="*" element={<Error />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <AuthWrapper>
+        <BrowserRouter>
+          <Navbar />
+          <Sidebar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/products" element={<Products />} />
+            <Route exact path="/products/:id" element={<SingleProduct />} />
+            <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/checkout" element={<Checkout />} />
+            <Route exact path="*" element={<Error />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </AuthWrapper>
     </>
   );
 }
